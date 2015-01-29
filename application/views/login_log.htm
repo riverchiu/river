@@ -1,0 +1,60 @@
+<div id="breadcrumbs" class="breadcrumbs">
+	<ul class="breadcrumb">
+		<li>
+			<i class="icon-home home-icon"></i>
+			<a href="./">首頁</a>
+		</li>
+		<li>資料管理</li>
+	</ul><!--.breadcrumb-->
+</div>
+
+<div class="page-content">
+	<div class="row">
+		<div class="col-xs-12">
+			<!--PAGE CONTENT BEGINS HERE-->
+			<form class="form-inline" name="myForm" id="myForm" ENCTYPE="multipart/form-data" method="post" action="store/lists" >
+			<a href="login_log/delete" class="btn btn-app btn-primary ">
+				<i class="icon-bitbucket bigger-160"></i>
+				清除記錄
+			</a>
+			
+				
+			<div style="padding-top:5px;" class="dataTables_length">
+				<div class="col-xs-6" style="margin-bottom:5px;float:left;padding-left:0;">
+					
+					</form>
+				</div>
+			
+				<div style="clear:both;"></div>
+			</div>
+			
+			<table class="table table-striped table-bordered table-hover dataTable" id="table_report">
+			  <thead>
+			  <tr>
+				<th>登入帳號</th>
+				<th>時間</th>
+				<th>狀態</th>
+			  </tr>
+			  </thead>
+			  <tfoot></tfoot>
+			  <tbody>
+				{foreach from=$data item="id" name="foo"}  
+				  <tr> 
+					<td align="center">{$id.account}</td>
+					<td align="center">{$id.login_time}</td>
+					<td align="center">{if $id.is_success==0}成功{else if $id.is_success==1}帳號錯誤{else if $id.is_success==2}密碼錯誤{else}失敗{/if}</td>
+				  </tr>
+				{/foreach}
+			</tbody>
+			</table>
+		
+			<div class="row">
+				<!--<div align="center">{$pageBar}</div>-->
+			</div>
+		<!-- PAGE CONTENT ENDS HERE-->
+		</div>
+	</div><!-- /row-->
+</div><!-- /#page-content-->
+
+<script type="text/javascript">
+</script>	

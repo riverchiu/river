@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class User_model extends CI_Model {
+class Login_log_model extends CI_Model {
 
 	public function __construct() {
         parent::__construct();
@@ -8,19 +8,18 @@ class User_model extends CI_Model {
     }
 	
 	
-	function getAll()
+
+	function GetAll() 
 	{
-		$sql = "SELECT * FROM `user`";
+		$sql = "SELECT * FROM `login_log` order by `login_time` DESC";
 		$query = $this->db->query($sql);
-		return	$query->result_array();
+		return $query->result_array();
 	}
-	function GetUserByAccount($ac) 
+	function insert($ac,$ti,$su)
 	{
-		$fe = array();
-		$sql = "SELECT * FROM `user` WHERE `account` = '$ac'";
+		$sql="INSERT INTO login_log SET `account` = '$ac',`login_time` = '$ti',`is_success`='$su'";
 		$query = $this->db->query($sql);
-		$fe = $query->row_array();
-		return $fe;
+		return;
 	}
 	
 }

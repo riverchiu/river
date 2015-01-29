@@ -3,22 +3,31 @@
 class Login extends CI_Controller {
 		public function index() 
 		{
+			$this->load->model('user_model','user');
+			$this->load->model('login_log_model','login_log');
 			if(isset($_SESSION['account']))
 					redirect(base_url());
 			else
 			{
 				if(isset($_POST['account']) && isset($_POST['password']))
 				{
-					$this->load->model('user_model','user');
+					
 					$userData=$this->user->GetUserByAccount($_POST['account']);
 					if(count($userData)==0)
+					{
+						$this->login_log->insert($_POST['account'],date("Y-m-d H:i:s"),1);
 						$this->ShowLogin();
+					}
 					else
 					{
 						if($userData['password']!=md5($_POST['password']))
-								$this->ShowLogin();
+						{
+							$this->login_log->insert($_POST['account'],date("Y-m-d H:i:s"),2);
+							$this->ShowLogin();
+						}
 						else
 						{
+							$this->login_log->insert($_POST['account'],date("Y-m-d H:i:s"),0);
 							$_SESSION['u_guid']=$userData['u_guid'];
 							$_SESSION['account']=$userData['account'];
 							$_SESSION['name']=$userData['name'];
