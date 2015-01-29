@@ -1,0 +1,82 @@
+<a class="menu-toggler" id="menu-toggler" href="#">
+	<span class="menu-text"></span>
+</a>
+
+<div id="sidebar" class="sidebar">
+	<ul class="nav nav-list">
+	<li class="light-blue">
+					<a data-toggle=""  class="">
+						<i class="icon-warning-sign"></i>
+						
+						<span class="user-info">
+							<small>歡迎光臨</small>
+							{$gUserName}
+						</span>
+					</a>
+
+					<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">{* id="user_menu"*}
+						<li>
+							<a href="logout">
+								<i class="icon-off"></i>
+								登出
+							</a>
+						</li>
+					</ul>
+				</li>
+		<li {if (!$sfunc && !$saction)}class="active" {/if}>
+			<a href="./">
+				<i class="icon-gittip"></i>
+				<span class="menu-text">首頁</span>
+			</a>
+		</li>
+
+		<li {if $sfunc=='member'}class="active "{/if}>
+			<a href="member/lists" >
+				<i class="icon-gittip"></i>
+				<span class="menu-text">使用者管理</span>
+			</a>
+
+
+		</li>	
+		<li {if $sfunc=='membergroup'}class="active "{/if}>
+			<a href="membergroup/lists" >
+				<i class="icon-gittip"></i>
+				<span class="menu-text">權限管理</span>
+			</a>
+
+
+		</li>
+		<li {if $sfunc=='person'}class="active "{/if}>
+			<a href="person/lists" >
+				<i class="icon-gittip"></i>
+				<span class="menu-text">資料管理</span>
+			</a>
+		</li>	
+		<li {if $sfunc=='active_log'}class="active "{/if}>
+			<a href="active_log/lists" >
+				<i class="icon-gittip"></i>
+				<span class="menu-text">操作記錄</span>
+			</a>
+		</li>	
+		<li {if $sfunc=='login_log'}class="active "{/if}>
+			<a href="login_log/lists" >
+				<i class="icon-gittip"></i>
+				<span class="menu-text">登入記錄</span>
+			</a>
+		</li>	
+		<li>
+			<a href="logout" >
+				<i class="icon-gittip"></i>
+				<span class="menu-text">登出系統</span>
+			</a>
+		</li>	
+	</ul>
+
+	
+	
+	<script type="text/javascript">
+		{literal}
+		try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+		{/literal}
+	</script>
+</div>

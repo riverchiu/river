@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<base href="{$base_url}">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>測試用狀態</title>
+
+		<meta name="description" content="overview &amp; stats" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="shortcut icon" href="../favicon.gif">
+
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+		
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
+
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-responsive.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/jquery.gritter.css" />
+
+
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>{*1.7.1*}{*2.0.3*}
+
+		<script type="text/javascript">
+		{literal}
+	
+		{/literal}
+		</script>
+		
+
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/typeahead-bs2.min.js"></script>
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+
+	</head> 
+
+	<body style>
+		{include file="top.htm"}
+		<div class="main-container" id="main-container">
+			<div class="main-container-inner">
+				{include file="menu.htm"}
+				<div class="main-content">
+					{$bodyTpl}
+				</div>
+			</div>
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>
+      	</div>
+ 	</body>
+</html>
