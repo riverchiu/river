@@ -1,5 +1,7 @@
 .DS_Store
 
+application/views/tpl_c/*
+
 application/cache/*
 !application/cache/index.html
 !application/cache/.htaccess
