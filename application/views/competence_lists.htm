@@ -13,14 +13,12 @@
 		<div class="col-xs-12">
 			<!--PAGE CONTENT BEGINS HERE-->
 			<form class="form-inline" name="myForm" id="myForm" ENCTYPE="multipart/form-data" method="post" action="store/lists" >
-			<a href="person/add" class="btn btn-app btn-primary ">
+			<a href="person/new_person" class="btn btn-app btn-primary ">
 				<i class="icon-plus bigger-160"></i>
 				新增
 			</a>
 			
-			<button name="btn_name" value="reset" type="submit"  class="btn btn-app btn-primary ">
-							<i class="icon-refresh icon-on-right bigger-110"></i>重置
-			</button>
+			
 				
 			<div style="padding-top:5px;" class="dataTables_length">
 				<div class="col-xs-6" style="margin-bottom:5px;float:left;padding-left:0;">
@@ -34,11 +32,8 @@
 			<table class="table table-striped table-bordered table-hover dataTable" id="table_report">
 			  <thead>
 			  <tr>
-				<th>姓名</th>
-				<th>身分證字號</th>
-				<th>電話</th>
-				<th>血型</th>
-				<th>生日</th>
+				<th>名稱</th>
+				<th>描述</th>
 				<th>編輯</th>
 			  </tr>
 			  </thead>
@@ -47,13 +42,11 @@
 				{foreach from=$data item="id" name="foo"}  
 				  <tr> 
 					<td align="center">{$id.name}</td>
-					<td align="center">{$id.identity}</td>
-					<td align="center">{$id.phone_number}</td>
-					<td align="center">{$id.blood_type}</td>
-					<td align="center">{$id.birthday}</td>
+					<td align="center">{$id.desc}</td>
 					<td align="center"> 
 						<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-							<a href="data/edit?name={$id.name}">修改</a>
+							<a href="competence/competenceedit?id={$id.g_guid}">權限</a>
+							<a href="competence/edit?name={$id.name}">修改</a>
 							<a href="" onclick="return confirm('使否確定要執行這個動作？')">刪除</a>
 						</div>
 					</td>

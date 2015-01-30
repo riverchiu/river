@@ -1,0 +1,122 @@
+<link rel="stylesheet" href="assets/css/datepicker.css" />
+<script src="assets/js/bootstrap-datepicker.js"></script>
+
+
+
+
+<div id="breadcrumbs" class="breadcrumbs">
+	<ul class="breadcrumb">
+		<li>
+			<i class="icon-home home-icon"></i>
+			<a href="./" title="Go to Home">首頁</a>
+		</li>
+		<li>
+			<a href="user/lists">使用者管理</a>
+		</li>
+		<li class="active">編輯</li>
+
+	</ul><!--.breadcrumb-->
+</div>
+
+<div class="page-content">
+	<div class="page-header">
+	
+	</div><!--/.page-header-->
+	
+	<div class="row">
+		<div class="col-xs-12">
+			<!--PAGE CONTENT BEGINS HERE-->
+			<!-- 提示訊息 start -->
+			<div class="alert alert-info">
+				<i class="icon-heart red"></i> 有標記此符號，請勿必填寫，感謝您。
+				<button class="close" data-dismiss="alert">
+					<i class="icon-remove"></i>
+				</button>
+			</div>
+			<!-- 提示訊息 ended -->
+		
+			<!-- 警示訊息 start -->
+			<div id="msg_warn" class="error alert alert-danger" style="display:none;">
+				<i class="icon-remove-sign icon-large"></i>
+				<span></span>
+				<button class="close" data-dismiss="alert">
+					<i class="icon-remove"></i>
+				</button>
+			</div>
+			<!-- 警示訊息 ended -->
+			
+			<form name="myForm2" id="myForm2" class="form-horizontal" ENCTYPE="multipart/form-data" method="post" action="user/edit?id={$userData.u_guid}" >
+				<div class="form-group">
+					<label class="col-sm-3 control-label no-padding-right" for="tag_name"><i class="icon-heart red"></i>帳號</label>
+					<div class="col-sm-9">
+						<input type="text" name="account" id="account" disabled="false"  value="{$userData.account}" onchange="check()" style="width:50%;"  required />
+					</div>
+					<BR><BR>
+					<label class="col-sm-3 control-label no-padding-right" for="tag_name"><i class="icon-heart red"></i>顯示名稱</label>
+					<div class="col-sm-9">
+						<input type="text" name="name" id="name" value="{$userData.name}" onchange="check()" style="width:50%;"  required />
+					</div>
+					<BR><BR>
+					
+					<label class="col-sm-3 control-label no-padding-right" for="tag_name">密碼</label>
+					<div class="col-sm-9">
+						<input type="password" name="password" id="password" onchange="check()" style="width:50%;" />
+					</div>
+					<BR><BR>
+					<label class="col-sm-3 control-label no-padding-right" for="tag_name">再次輸入</label>
+					<div class="col-sm-9">
+						<input type="password" name="password2" id="password2" onchange="check()" style="width:50%;" />
+					</div>
+					<BR><BR>
+					<label class="col-sm-3 control-label no-padding-right" for="tag_name"></i>群組權限</label>
+						<div class="col-sm-9">
+							<select name="g_id">
+								<option value="" >請選擇</option>
+								{foreach from=$comData item=icd}
+								<option value="{$icd.g_guid}"{if $icd.g_guid==$userData.g_id}selected{/if}>{$icd.name}</option>
+								{/foreach}
+							</select>
+						</div>
+					<BR><BR>
+				
+				<div class="clearfix form-actions">
+					<div class="col-md-offset-3 col-md-9">
+						<button class="btn btn-success" id="btn_save" type="submit">
+							<i class="icon-ok bigger-110"></i>
+							儲存
+						</button>
+						
+						<button class="btn btn-primary" type="submit" onclick="javascript:history.go(0);">
+							<i class="icon-undo bigger-110"></i>
+							重設
+						</button>
+						
+						<button class="btn btn-danger" type="button" onclick="javascript:history.go(-1);">
+							<i class="icon-remove bigger-110"></i>
+							取消
+						</button>
+					</div>
+				</div>
+			</form>
+		<!--PAGE CONTENT ENDS HERE-->
+		</div>
+	</div><!--/row-->
+</div><!--/#page-content-->
+
+<script type="text/javascript">
+function check()
+{
+	document.getElementById("account").value=document.getElementById("account").value.replace(/ /g,"");
+	document.getElementById("name").value=document.getElementById("name").value.replace(/ /g,"");
+	document.getElementById("password").value=document.getElementById("password").value.replace(/ /g,"");
+	document.getElementById("password2").value=document.getElementById("password2").value.replace(/ /g,"");
+	
+	if(document.getElementById("password").value!=""  && document.getElementById("password2").value!="" && document.getElementById("password").value!=document.getElementById("password2").value)
+	{
+		alert("兩次輸入不相同請重新輸入");
+		document.getElementById("password2").value="";
+	}
+
+	//document.getElementById("btn_save").click();
+}
+</script>

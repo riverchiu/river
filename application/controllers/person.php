@@ -20,7 +20,7 @@ class Person extends CI_Controller {
 		$this->smarty->assign("gUserName",$_SESSION['name']);
 		$this->smarty->view('main.htm');
 	}
-	public function new_person()
+	public function add()
 	{
 		$this->smarty->assign("base_url",base_url());
 		$this->smarty->assign("sfunc",$this->uri->segment(1));

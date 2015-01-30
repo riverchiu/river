@@ -7,7 +7,7 @@ class Main extends River_Controller {
 	}
 	
 	public function index() {
-
+		echo date("");
 		$this->smarty->assign("base_url",base_url());
 		$this->smarty->assign("sfunc",$this->uri->segment(1));
 		$this->smarty->assign("saction",$this->uri->segment(2));	

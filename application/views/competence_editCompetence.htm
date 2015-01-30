@@ -1,0 +1,60 @@
+<div id="breadcrumbs" class="breadcrumbs">
+	<ul class="breadcrumb">
+		<li>
+			<i class="icon-home home-icon"></i>
+			<a href="./">首頁</a>
+		</li>
+		<li><a href="member_group/lists">使用者群組管理</a></li>
+		<li class="active">使用者群組權限管理</li>
+	</ul>
+</div>
+<div class="page-content">
+	<div class="row">
+		<div class="col-xs-12">
+			<form name=myForm id=myForm ENCTYPE=multipart/form-data method="post" action="competence/competenceedit?id={$id}">
+
+			  <table class="form" width="90%" border="0" cellspacing="0" cellpadding="0">
+				<tr> 
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				</tr>
+				<tr> 
+				  <td class="label">群 組 名 稱</td>
+				  <td class="value">{$groupName}</td>
+				</tr>
+				
+				<tr> 
+				  <td class="label">群 組 描 述</td>
+				  <td class="value">{$groupDesc}</td>
+				</tr>
+				 
+				 <tr> 
+				 <td class="label">權 限</td>
+
+				  <td class="value"> 
+				  <HR>
+					{foreach from=$competenceData item="entry"}  
+						{$entry.name}<BR>		
+						{foreach from=$entry.action item="entry2"}
+							<input name='{$entry.key}_{$entry2.key}' id='{$entry.key}_{$entry2.key}' type='checkbox' value='1' {if $entry2.access}checked{/if} />{$entry2.name}
+						{/foreach}
+						<HR>
+					{/foreach}         
+				   </td>
+				</tr>
+				
+				<tr> 
+				  <td>&nbsp;</td>
+				  <td> 
+					<input class="btn-positive" type="submit" name="Submit" value="儲存">
+					<input class="btn-standard" type="reset" name="Submit2" value="重設">
+					<input class="btn-negative" type="button" name="Submit3" value="取消" onClick = "javascrupt:history.go(-1)">
+				  </td>
+				</tr>
+			  </table>
+
+			</form>
+		
+		</div>
+	</div>
+</div>
