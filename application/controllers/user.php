@@ -57,6 +57,17 @@ class User extends River_Controller {
 			$this->myjavascript->vRedirect("lists");
 		
 	}
+	public function delete()
+	{
+		if(count($_GET)>0)
+		{
+			$this->load->model('user_model', 'user');
+			$this->user->Delete($_GET['id']);
+			$this->myjavascript->vAlertRedirect("資料已刪除","lists");
+		}
+		else
+			$this->myjavascript->vRedirect("lists");
+	}
 	public function add()
 	{
 		if(count($_POST)>0)

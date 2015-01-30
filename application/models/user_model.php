@@ -22,6 +22,11 @@ class User_model extends CI_Model {
 		$fe = $query->row_array();
 		return $fe;
 	}
+	function Delete($id)
+	{
+		$sql="DELETE FROM `user` where u_guid='$id'";
+		$query = $this->db->query($sql);
+	}
 	function GetUserById($id) 
 	{
 		$fe = array();
